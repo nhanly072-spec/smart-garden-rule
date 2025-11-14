@@ -1,104 +1,139 @@
 <!DOCTYPE html>
 <html lang="vi">
 <head>
-    <meta charset="UTF-8">
-    <title>Smart Garden - Rule</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Smart Garden – Nội Quy Ra Vào</title>
+
     <style>
         body {
-            font-family: Arial, sans-serif;
-            background: #e9f7ec;
             margin: 0;
             padding: 0;
+            font-family: "Segoe UI", sans-serif;
+            background: #f5fdf5;
+            color: #222;
         }
 
         header {
-            background: linear-gradient(90deg, #2ecc71, #27ae60);
+            background: #2e7d32;
             color: white;
-            padding: 25px;
+            padding: 22px 0;
             text-align: center;
-            font-size: 36px;
-            font-weight: bold;
-            letter-spacing: 1px;
+            font-size: 26px;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+            box-shadow: 0 3px 6px rgba(0,0,0,0.2);
         }
 
         .container {
-            width: 90%;
-            max-width: 900px;
-            margin: 40px auto;
-        }
-
-        .rule-card {
-            background: white;
-            border-left: 8px solid #27ae60;
+            max-width: 1000px;
+            margin: auto;
             padding: 20px;
-            margin-bottom: 20px;
-            border-radius: 12px;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-            transition: 0.25s;
         }
 
-        .rule-card:hover {
-            transform: scale(1.02);
-            box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+        .rule-section {
+            background: white;
+            margin: 18px 0;
+            padding: 22px;
+            border-radius: 14px;
+            border-left: 6px solid #4caf50;
+            box-shadow: 0 3px 6px rgba(0,0,0,0.08);
         }
 
         h2 {
-            color: #2e7d32;
             margin-top: 0;
+            color: #2e7d32;
         }
 
-        .rule-label {
-            font-weight: bold;
-            color: #1b5e20;
+        ul {
+            padding-left: 22px;
+            line-height: 1.7;
+            font-size: 17px;
         }
 
-        footer {
+        .danger {
+            border-left-color: #e53935;
+        }
+
+        .footer {
             text-align: center;
-            padding: 20px;
-            margin-top: 40px;
-            color: #555;
+            margin: 30px 0;
+            font-size: 15px;
+            color: #777;
+        }
+
+        .btn-print {
+            display: block;
+            width: 180px;
+            text-align: center;
+            margin: 20px auto;
+            padding: 12px;
+            background: #388e3c;
+            color: white;
+            border-radius: 8px;
+            font-size: 17px;
+            text-decoration: none;
+        }
+
+        .btn-print:hover {
+            background: #2e7d32;
         }
     </style>
 </head>
+
 <body>
 
-<header>Smart Garden – Rule Điều Khiển</header>
+    <header>NỘI QUY RA VÀO – SMART GARDEN</header>
 
-<div class="container">
+    <div class="container">
 
-    <h2>Danh sách Rule trong vườn</h2>
+        <div class="rule-section">
+            <h2>1. Quy định trước khi vào vườn</h2>
+            <ul>
+                <li>Đăng ký ra vào qua QR hoặc danh sách trực.</li>
+                <li>Kiểm tra tình trạng hệ thống IoT (đèn, bơm, cảm biến).</li>
+                <li>Không mang giày bẩn, đất cát vào khu vực vườn.</li>
+                <li>Không mang thiết bị điện cá nhân kết nối vào hệ thống.</li>
+            </ul>
+        </div>
 
-    <!-- Rule nhiệt độ -->
-    <div class="rule-card">
-        <div class="rule-label">🌡 Rule Nhiệt Độ</div>
-        <p>Khi nhiệt độ > 30°C → Bật quạt làm mát</p>
-        <p>Khi nhiệt độ < 20°C → Tắt quạt</p>
+        <div class="rule-section">
+            <h2>2. Quy định trong khi ở trong vườn</h2>
+            <ul>
+                <li>Không tự ý thay đổi vị trí thiết bị: camera, cảm biến, bộ điều khiển.</li>
+                <li>Không tự ý bật/tắt bơm, quạt, đèn nếu không thuộc ca trực.</li>
+                <li>Không chạm tay vào dây điện, module IoT, relay, bo mạch Mega/ESP.</li>
+                <li>Không làm đổ nước vào thiết bị hoặc bảng điều khiển.</li>
+                <li>Đi lại nhẹ nhàng – tránh giẫm lên khu trồng hoặc dây cảm biến.</li>
+                <li>Không mang thức ăn, đồ uống có đường vào vườn.</li>
+                <li>Không xả rác – giữ vệ sinh tuyệt đối.</li>
+            </ul>
+        </div>
+
+        <div class="rule-section">
+            <h2>3. Quy định khi rời khỏi vườn</h2>
+            <ul>
+                <li>Kiểm tra lại thiết bị đã tắt hoặc ở chế độ tự động.</li>
+                <li>Không để lại đồ dùng cá nhân trong vườn.</li>
+                <li>Ghi chú các sự cố (nếu có) vào sổ nhật ký hoặc báo trực tiếp cho nhóm trưởng.</li>
+                <li>Đóng cửa và kiểm tra khóa an toàn.</li>
+            </ul>
+        </div>
+
+        <div class="rule-section danger">
+            <h2>4. Tình huống khẩn cấp</h2>
+            <ul>
+                <li>Báo ngay cho nhóm trưởng hoặc GV phụ trách khi phát hiện chập điện, cháy, hỏng thiết bị.</li>
+                <li>Không chạm vào thiết bị khi có mùi khét hoặc có nước đọng.</li>
+                <li>Ngắt nguồn tổng nếu được đào tạo và biết vị trí công tắc.</li>
+                <li>Rời khỏi vườn ngay nếu hệ thống cảnh báo an toàn tự động kích hoạt.</li>
+            </ul>
+        </div>
+
+        <a class="btn-print" onclick="window.print()">In Nội Quy</a>
+
+        <div class="footer">© 2025 Smart Garden – Nhóm IoT</div>
     </div>
-
-    <!-- Rule độ ẩm không khí -->
-    <div class="rule-card">
-        <div class="rule-label">💧 Rule Độ ẩm không khí</div>
-        <p>Khi độ ẩm < 50% → Bật máy phun sương</p>
-        <p>Khi độ ẩm > 70% → Tắt máy phun sương</p>
-    </div>
-
-    <!-- Rule ánh sáng -->
-    <div class="rule-card">
-        <div class="rule-label">🔆 Rule Ánh sáng</div>
-        <p>Khi ánh sáng < 400 lux → Bật đèn LED trồng cây</p>
-        <p>Khi ánh sáng > 800 lux → Tắt đèn</p>
-    </div>
-
-    <!-- Rule độ ẩm đất (nếu bạn muốn) -->
-    <div class="rule-card">
-        <div class="rule-label">🌱 Rule Độ ẩm đất</div>
-        <p>Khi độ ẩm đất < 40% → Bật bơm tưới</p>
-        <p>Khi độ ẩm đất > 70% → Tắt bơm</p>
-    </div>
-
-</div>
-
-<footer>Vườn thông minh – Nhóm bạn tự thiết kế • GitHub Pages</footer>
 
 </body>
 </html>
