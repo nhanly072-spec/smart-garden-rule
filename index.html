@@ -1,139 +1,216 @@
 <!DOCTYPE html>
 <html lang="vi">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Green Farm IoT – Nội Quy Khu Vườn</title>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Green Farm IoT - Garden Rules</title>
 
-    <style>
-        body {
-            margin: 0;
-            padding: 0;
-            font-family: "Segoe UI", sans-serif;
-            background: #f5fdf5;
-            color: #222;
-        }
+<!-- Google Icons -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded" rel="stylesheet" />
 
-        header {
-            background: #2e7d32;
-            color: white;
-            padding: 22px 0;
-            text-align: center;
-            font-size: 26px;
-            font-weight: 700;
-            box-shadow: 0 3px 6px rgba(0,0,0,0.2);
-        }
+<style>
+    body {
+        margin: 0;
+        font-family: "Poppins", sans-serif;
+        transition: 0.4s;
+        background: url('https://images.unsplash.com/photo-1501004318641-b39e6451bec6?auto=format&fit=crop&w=1200&q=60') center/cover fixed;
+    }
 
-        .container {
-            max-width: 1000px;
-            margin: auto;
-            padding: 20px;
-        }
+    /* Overlay mờ */
+    .overlay {
+        position: fixed;
+        inset: 0;
+        backdrop-filter: blur(4px);
+        background: rgba(0,0,0,0.42);
+        z-index: -1;
+    }
 
-        .rule-section {
-            background: white;
-            margin: 18px 0;
-            padding: 22px;
-            border-radius: 14px;
-            border-left: 6px solid #4caf50;
-            box-shadow: 0 3px 6px rgba(0,0,0,0.08);
-        }
+    /* NAVIGATION BAR */
+    nav {
+        width: 100%;
+        padding: 14px 30px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        backdrop-filter: blur(8px);
+        background: rgba(0,0,0,0.35);
+        border-bottom: 1px solid rgba(255,255,255,0.15);
+    }
 
-        h2 {
-            margin-top: 0;
-            color: #2e7d32;
-        }
+    nav .logo {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        color: #fff;
+        font-size: 22px;
+        font-weight: 600;
+        letter-spacing: 1px;
+    }
 
-        ul {
-            padding-left: 22px;
-            line-height: 1.7;
-            font-size: 17px;
-        }
+    nav .logo img {
+        width: 40px;
+        filter: drop-shadow(0 0 6px rgba(0,255,120,0.9));
+    }
 
-        .danger {
-            border-left-color: #e53935;
-        }
+    nav .menu a {
+        color: #fff;
+        margin: 0 15px;
+        text-decoration: none;
+        font-weight: 500;
+        transition: .2s;
+    }
 
-        .footer {
-            text-align: center;
-            margin: 30px 0;
-            font-size: 15px;
-            color: #777;
-        }
+    nav .menu a:hover {
+        color: #00ff99;
+    }
 
-        .btn-print {
-            display: block;
-            width: 180px;
-            text-align: center;
-            margin: 20px auto;
-            padding: 12px;
-            background: #388e3c;
-            color: white;
-            border-radius: 8px;
-            font-size: 17px;
-            text-decoration: none;
-        }
+    /* Dark Mode Button */
+    .toggle-btn {
+        background: #00ff99;
+        border: none;
+        padding: 8px 16px;
+        border-radius: 20px;
+        cursor: pointer;
+        font-weight: 600;
+        transition: .3s;
+    }
 
-        .btn-print:hover {
-            background: #2e7d32;
-        }
-    </style>
+    .toggle-btn:hover {
+        background: #04d982;
+    }
+
+    /* CONTENT CARD */
+    .container {
+        max-width: 800px;
+        margin: 60px auto;
+        background: rgba(255,255,255,0.1);
+        padding: 30px;
+        border-radius: 22px;
+        backdrop-filter: blur(12px);
+        color: #fff;
+        border: 1px solid rgba(255,255,255,0.15);
+
+        animation: slideUp 0.9s ease forwards;
+        opacity: 0;
+    }
+
+    @keyframes slideUp {
+        0% { transform: translateY(40px); opacity: 0; }
+        100% { transform: translateY(0); opacity: 1; }
+    }
+
+    h1 {
+        text-align: center;
+        font-size: 32px;
+        text-shadow: 0 0 8px #00ff99;
+        animation: glow 1.8s infinite alternate;
+    }
+
+    @keyframes glow {
+        from { text-shadow: 0 0 5px #00ff99; }
+        to { text-shadow: 0 0 15px #00ffaa; }
+    }
+
+    .rule {
+        display: flex;
+        align-items: center;
+        gap: 16px;
+        padding: 16px 0;
+        border-bottom: 1px solid rgba(255,255,255,0.2);
+        font-size: 18px;
+        animation: fadeIn 1s ease;
+    }
+
+    @keyframes fadeIn {
+        from { opacity: 0; transform: translateX(-20px); }
+        to { opacity: 1; transform: translateX(0); }
+    }
+
+    .material-symbols-rounded {
+        font-size: 34px;
+        color: #00ff99;
+        filter: drop-shadow(0 0 4px #00ff99);
+    }
+
+    /* DARK MODE */
+    .dark {
+        background: #0a0f0a url('https://images.unsplash.com/photo-1501004318641-b39e6451bec6?auto=format&fit=crop&w=1200&q=60') center/cover fixed;
+    }
+
+    .dark nav {
+        background: rgba(0,0,0,0.65);
+    }
+
+    .dark .container {
+        background: rgba(0,0,0,0.45);
+        color: #eee;
+    }
+
+    .dark .toggle-btn {
+        background: #009966;
+        color: #fff;
+    }
+</style>
 </head>
 
 <body>
+<div class="overlay"></div>
 
-    <header>NỘI QUY KHU VƯỜN – GREEN FARM IOT</header>
-
-    <div class="container">
-
-        <div class="rule-section">
-            <h2>1. Quy định trước khi vào vườn</h2>
-            <ul>
-                <li>Đăng ký ra vào qua QR hoặc nhóm trực nội bộ.</li>
-                <li>Kiểm tra tình trạng hệ thống IoT (đèn, bơm, cảm biến).</li>
-                <li>Không mang giày bẩn hoặc đất cát vào khu vực Green Farm IoT.</li>
-                <li>Không tự ý đấu nối hoặc mượn nguồn điện ngoài hệ thống.</li>
-            </ul>
-        </div>
-
-        <div class="rule-section">
-            <h2>2. Quy định trong khi ở trong khu vườn</h2>
-            <ul>
-                <li>Không tự ý thay đổi vị trí camera, cảm biến, dây điện hoặc module IoT.</li>
-                <li>Không bật/tắt bơm, đèn, quạt khi hệ thống đang chạy tự động.</li>
-                <li>Không chạm vào relay, bo mạch Mega/ESP khi thiết bị đang hoạt động.</li>
-                <li>Không để nước rơi vào thiết bị hoặc bảng điều khiển.</li>
-                <li>Đi lại nhẹ nhàng, tránh giẫm lên dây cảm biến hoặc vùng trồng.</li>
-                <li>Không mang đồ ăn, nước ngọt hoặc chất có đường vào Green Farm IoT.</li>
-                <li>Duy trì vệ sinh sạch sẽ, không xả rác trong khu vực.</li>
-            </ul>
-        </div>
-
-        <div class="rule-section danger">
-            <h2>3. Cấm tuyệt đối</h2>
-            <ul>
-                <li>🚭 <strong>NO SMOKING – Cấm hút thuốc trong toàn bộ khu vực.</strong></li>
-                <li>🔥 <strong>Cấm đốt lửa, mang bật lửa, hoặc vật dụng tạo tia lửa.</strong></li>
-                <li>⚡ Cấm tự ý tháo lắp thiết bị điện, mở hộp kỹ thuật.</li>
-                <li>Không mang các chất dễ cháy: cồn, gas mini, hoá chất tạo cháy.</li>
-                <li>Cấm chạy nhảy, xô đẩy gây đổ cây hoặc làm hỏng thiết bị IoT.</li>
-            </ul>
-        </div>
-
-        <div class="rule-section danger">
-            <h2>4. Tình huống khẩn cấp</h2>
-            <ul>
-                <li>Nếu phát hiện mùi khét, cháy hoặc chập điện → lập tức rời khỏi khu vực.</li>
-                <li>Không chạm vào thiết bị nghi có sự cố.</li>
-                <li>Ngắt nguồn tổng <strong>nếu an toàn</strong> và bạn biết vị trí.</li>
-                <li>Báo ngay cho nhóm kỹ thuật Green Farm IoT qua số điện thoại/nhóm chat.</li>
-            </ul>
-        </div>
-
-        <a class="btn-print" onclick="window.print()">In Nội Quy</a>
-
-        <div class="footer">© 2025 Green Farm IoT – Nhóm Phát Triển</div>
+<!-- NAV BAR -->
+<nav>
+    <div class="logo">
+        <img src="https://cdn-icons-png.flaticon.com/512/2907/2907253.png">
+        Green Farm IoT
     </div>
+    <div class="menu">
+        <a href="#">Trang chủ</a>
+        <a href="#">Điều khiển IoT</a>
+        <a href="#">Camera</a>
+        <a href="#">Biểu đồ</a>
+    </div>
+    <button class="toggle-btn" onclick="toggleMode()">Dark Mode</button>
+</nav>
+
+<div class="container">
+    <h1>Nội Quy Khi Vào Green Farm IoT</h1>
+
+    <div class="rule">
+        <span class="material-symbols-rounded">warning</span>
+        Không hút thuốc & không mang theo nguồn lửa (🔥 matches, bật lửa…)
+    </div>
+
+    <div class="rule">
+        <span class="material-symbols-rounded">key</span>
+        Giữ gìn trang thiết bị IoT – không tự ý mở hộp điều khiển, router, cảm biến.
+    </div>
+
+    <div class="rule">
+        <span class="material-symbols-rounded">humidity_percentage</span>
+        Không chạm vào cảm biến nhiệt độ – độ ẩm – ánh sáng trừ khi được yêu cầu.
+    </div>
+
+    <div class="rule">
+        <span class="material-symbols-rounded">videocam</span>
+        Khu vực có camera giám sát – vui lòng không che hoặc xoay camera.
+    </div>
+
+    <div class="rule">
+        <span class="material-symbols-rounded">route</span>
+        Đi đúng lối đi, tránh dẫm lên luống cây hoặc dây điện cảm biến.
+    </div>
+
+    <div class="rule">
+        <span class="material-symbols-rounded">cleaning_services</span>
+        Không xả rác trong vườn – hãy giữ môi trường xanh sạch đẹp.
+    </div>
+
+</div>
+
+<script>
+function toggleMode() {
+    document.body.classList.toggle("dark");
+}
+</script>
 
 </body>
 </html>
