@@ -1,136 +1,71 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="vi">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Luật Ra/Vào — Smart Garden</title>
-  <meta name="description" content="Trang luật lệ ra vào Smart Garden: an toàn, vệ sinh, quyền riêng tư và quy trình khẩn cấp." />
-  <style>
-    :root{--bg:#0f1724;--card:#0b1220;--muted:#94a3b8;--accent:#22c55e;--glass: rgba(255,255,255,0.04)}
-    *{box-sizing:border-box}
-    body{font-family:Inter, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial; margin:0; background:linear-gradient(180deg,#071020 0%, #071826 100%); color:#e6eef8; -webkit-font-smoothing:antialiased}
-    .container{max-width:980px;margin:36px auto;padding:24px}
-    header{display:flex;gap:16px;align-items:center}
-    .logo{width:64px;height:64px;border-radius:12px;background:linear-gradient(135deg,#0ea5a7,#34d399);display:flex;align-items:center;justify-content:center;font-weight:700;color:#042029}
-    h1{margin:0;font-size:22px}
-    p.lead{color:var(--muted);margin:6px 0 18px}
-    .grid{display:grid;grid-template-columns:1fr 320px;gap:20px}
-    .card{background:var(--card);padding:18px;border-radius:12px;box-shadow:0 6px 18px rgba(2,6,23,0.6);border:1px solid rgba(255,255,255,0.03)}
-    ul.rules{list-style:none;padding:0;margin:0}
-    ul.rules li{padding:10px 12px;border-radius:8px;margin-bottom:10px;background:linear-gradient(180deg, rgba(255,255,255,0.01), rgba(255,255,255,0.00));display:flex;gap:12px;align-items:flex-start}
-    .badge{min-width:36px;height:36px;border-radius:8px;background:var(--glass);display:inline-flex;align-items:center;justify-content:center;color:var(--accent);font-weight:700}
-    .muted{color:var(--muted);font-size:13px}
-    .actions{display:flex;gap:10px;margin-top:14px}
-    button{background:var(--accent);border:none;padding:10px 14px;border-radius:10px;color:#052018;font-weight:700;cursor:pointer}
-    .btn-outline{background:transparent;border:1px solid rgba(255,255,255,0.06);color:var(--muted)}
-    aside .meta{display:flex;flex-direction:column;gap:8px}
-    .meta .row{display:flex;justify-content:space-between}
-    .qr{width:100%;height:200px;border-radius:8px;background:linear-gradient(180deg,#08242a,#052329);display:flex;align-items:center;justify-content:center;color:var(--muted)}
-    footer{margin-top:22px;color:var(--muted);font-size:13px;text-align:center}
-    @media(max-width:880px){.grid{grid-template-columns:1fr} .qr{height:160px}}
-    /* print */
-    @media print{body{background:white;color:#000} .card{box-shadow:none;border:none;background:transparent} button,.actions, .qr {display:none} header .logo{display:none} }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Nội Quy Ra/Vào Vườn Thông Minh</title>
+
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background: #f4f4f4;
+        padding: 20px;
+    }
+    .container {
+        max-width: 800px;
+        margin: auto;
+        background: #ffffff;
+        padding: 25px;
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+    h1 {
+        text-align: center;
+        color: #2a7c4f;
+    }
+    ul {
+        font-size: 18px;
+        line-height: 1.7;
+    }
+    li {
+        margin-bottom: 10px;
+        padding: 10px;
+        background: #e8f8f1;
+        border-left: 5px solid #2a7c4f;
+        border-radius: 5px;
+    }
+    .footer {
+        margin-top: 20px;
+        text-align: center;
+        color: #777;
+        font-size: 14px;
+    }
+</style>
+
 </head>
 <body>
-  <!--
-    README (sơ lược):
-    - Tên file: index.html
-    - Mục đích: trang tĩnh hiển thị luật ra/vào Smart Garden để đặt trên GitHub Pages
-    - Hướng dẫn publish: tạo repo trên GitHub, thêm file này vào branch main, bật GitHub Pages -> root. Hoặc push qua git:
-        git init
-        git add index.html
-        git commit -m "Add smart garden rules site"
-        git branch -M main
-        git remote add origin https://github.com/<username>/<repo>.git
-        git push -u origin main
-  -->
-  <div class="container">
-    <header>
-      <div class="logo">SG</div>
-      <div>
-        <h1>Luật Ra/Vào — Smart Garden</h1>
-        <p class="lead">Trang quy định dành cho khách, nhân viên và tình nguyện viên khi vào/ra vườn thông minh. In/treo tại lối vào để mọi người tuân thủ.</p>
-      </div>
-    </header>
 
-    <main class="grid" role="main">
-      <section class="card" aria-labelledby="rules-title">
-        <h2 id="rules-title">Quy tắc chung</h2>
-        <p class="muted">Hãy đọc kỹ và thực hiện các quy tắc sau để giữ an toàn cho bản thân và hệ thống.</p>
+<div class="container">
+    <h1>📌 NỘI QUY RA/VÀO VƯỜN THÔNG MINH</h1>
 
-        <ul class="rules" id="ruleList">
-          <li><div class="badge">1</div><div><strong>Check-in trước khi vào</strong><div class="muted">Quét QR / khai báo tên và mục đích. Khách không được tự ý đi sâu vào khu vực trồng.</div></div></li>
-          <li><div class="badge">2</div><div><strong>Không chạm thiết bị</strong><div class="muted">Các cảm biến, camera và bộ điều khiển (Mega2560, ESP) là thiết bị nhạy cảm — chỉ nhân viên được phép thao tác.</div></div></li>
-          <li><div class="badge">3</div><div><strong>Giữ vệ sinh</strong><div class="muted">Không vứt rác, thức ăn, thuốc trừ sâu, hoặc để vật lạ trên luống trồng. Giày bẩn phải vệ sinh trước khi vào.</div></div></li>
-          <li><div class="badge">4</div><div><strong>An toàn cháy nổ</strong><div class="muted">Không hút thuốc, sử dụng lửa hoặc thiết bị gây tia lửa trong khu vực.</div></div></li>
-          <li><div class="badge">5</div><div><strong>Tuân thủ biển báo</strong><div class="muted">Tôn trọng biển cấm vào, đường đi riêng, và khu vực bảo trì.</div></div></li>
-          <li><div class="badge">6</div><div><strong>Báo hỏng hóc</strong><div class="muted">Phát hiện cảm biến hỏng, rò rỉ nước hoặc sự cố camera — báo ngay cho số liên hệ ở bên phải.</div></div></li>
-          <li><div class="badge">7</div><div><strong>Quyền riêng tư & ghi hình</strong><div class="muted">Khu vực có camera giám sát phục vụ an ninh và vận hành. Việc ghi hình được thông báo; không cản trở camera.</div></div></li>
-          <li><div class="badge">8</div><div><strong>Vật nuôi</strong><div class="muted">Vật nuôi phải được giữ ngoài khu vực trồng trọt trừ khi có cho phép đặc biệt.</div></div></li>
-        </ul>
+    <p>Để đảm bảo an toàn và bảo vệ hệ thống của vườn thông minh, vui lòng tuân thủ các quy định sau:</p>
 
-        <div class="actions">
-          <button id="ackBtn">Tôi đã đọc & đồng ý</button>
-          <button class="btn-outline" id="printBtn">In/Download</button>
-        </div>
+    <ul>
+        <li>🚫 **Cấm hút thuốc** trong toàn bộ khu vực vườn.</li>
+        <li>🔥 **Không mang theo vật dụng dễ cháy nổ** (bật lửa, pháo, hóa chất…).</li>
+        <li>⚙️ **Không tự ý chạm hoặc can thiệp vào thiết bị**: cảm biến, máy bơm, bộ điều khiển, camera.</li>
+        <li>🪴 **Không dẫm lên luống cây**, đi đúng lối quy định.</li>
+        <li>🧴 **Giữ vệ sinh chung** – không vứt rác, chai lọ hay thức ăn vào khu vực trồng cây.</li>
+        <li>📸 **Không che hoặc xoay camera giám sát**.</li>
+        <li>🚪 **Ra/Vào phải được ghi nhận**: quét QR hoặc đăng ký với người quản lý.</li>
+        <li>🐶 **Không mang thú cưng vào** khu vực trồng trọt.</li>
+        <li>📞 Khi phát hiện sự cố (khói, nước rò rỉ, thiết bị hỏng), báo ngay cho quản lý.</li>
+    </ul>
 
-        <section style="margin-top:18px">
-          <h3 style="margin:0 0 8px">Quy trình khẩn cấp</h3>
-          <ol class="muted" style="padding-left:18px;margin:0">
-            <li>Giữ bình tĩnh, di chuyển đến lối thoát an toàn.</li>
-            <li>Báo nhân viên quản lý hoặc gọi số khẩn cấp: <strong>+84 9xx xxx xxx</strong>.</li>
-            <li>Không chạm vào các thiết bị điện nếu có nước hoặc mùi khét.</li>
-          </ol>
-        </section>
+    <div class="footer">
+        © Smart Garden – Vui lòng tuân thủ nội quy để đảm bảo an toàn cho mọi người.
+    </div>
+</div>
 
-      </section>
-
-      <aside class="card" aria-label="Thông tin nhanh">
-        <div class="meta">
-          <div class="row"><strong>Địa điểm:</strong><span class="muted">Vườn Thực nghiệm - Tầng trệt</span></div>
-          <div class="row"><strong>Giờ mở cửa:</strong><span class="muted">07:00 — 19:00</span></div>
-          <div class="row"><strong>Liên hệ:</strong><span class="muted">Ms. Lan — +84 9xx xxx xxx</span></div>
-          <div class="row"><strong>Người phụ trách kỹ thuật:</strong><span class="muted">Mr. Hòa</span></div>
-        </div>
-
-        <div style="margin-top:12px">
-          <h4 style="margin:0 0 8px">Check-in nhanh</h4>
-          <div class="qr" id="qrPlaceholder">QR Check-in (in ra hoặc dán tại cửa)</div>
-          <p class="muted" style="margin-top:10px">Quét QR để ghi nhận thời gian vào/ra; lưu ý nghiêm cấm giả mạo thông tin.</p>
-        </div>
-
-        <div style="margin-top:14px">
-          <h4 style="margin:0 0 8px">Ghi chú cho nhân viên</h4>
-          <p class="muted">Nhân viên cần mặc thẻ nhận diện, tắt quạt/thiết bị khi bảo trì, và cập nhật nhật ký vận hành.</p>
-        </div>
-
-      </aside>
-    </main>
-
-    <footer>
-      <div class="muted">Bản quyền &copy; Smart Garden — Vui lòng tuân thủ để bảo vệ hệ thống và cây trồng.</div>
-    </footer>
-  </div>
-
-  <script>
-    // Thao tác cơ bản: xác nhận, in
-    document.getElementById('ackBtn').addEventListener('click', function(){
-      alert('Cảm ơn! Bạn đã đồng ý tuân thủ quy định.');
-      this.disabled = true; this.textContent = 'Đã xác nhận';
-    });
-    document.getElementById('printBtn').addEventListener('click', function(){ window.print(); });
-
-    // Placeholder: có thể thay bằng QR code generator (client-side) hoặc hình QR tĩnh
-    const qr = document.getElementById('qrPlaceholder');
-    qr.textContent = '';
-    const img = document.createElement('img');
-    img.alt = 'QR code check-in';
-    img.style.maxWidth = '100%';
-    img.style.maxHeight = '100%';
-    // Nếu muốn, hãy đổi src bằng URL tới QR service hoặc tệp trong repo
-    img.src = 'data:image/svg+xml;utf8,\n<svg xmlns="http://www.w3.org/2000/svg" width="200" height="200"><rect width="100%" height="100%" fill="none"/></svg>';
-    qr.appendChild(img);
-  </script>
 </body>
 </html>
